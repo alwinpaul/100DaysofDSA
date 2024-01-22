@@ -12,7 +12,7 @@ Input: [8, 3, 5, 2, 4, 6, 0, 1]
 Output: 7
  */
 
-const input = [4, 0, 3, 1]; //[0431] [0413] [0143]
+const input = [2, 3, 1, 8, 2, 3, 5, 1];
 
 function sortNUmberInPlace(input) {
   let i = 0;
@@ -31,11 +31,11 @@ function sortNUmberInPlace(input) {
 function findMissingNumber(input) {
   sortNUmberInPlace(input);
 
-  for (let i = 0; i < input.length; i++) {
-    if (i != input[i]) {
-      return i;
+  return input.filter((num, index) => {
+    if(num === index) {
+        return index
     }
-  }
+  })
 }
 
 console.log(findMissingNumber(input));
