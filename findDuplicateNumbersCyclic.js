@@ -13,21 +13,23 @@ Output: [3, 5]
 
  */
 
-const input = [3, 4, 4, 5, 5];
+const input = [5, 4, 7, 2, 3, 5, 3];
 
 function findAllDuplicate(input) {
   let i = 0;
+  let result = [];
 
   while (i < input.length) {
     let swap = input[i] - 1;
-    let result = [];
-    if (i + 1 != input[i]) {
-      if (input[i] === input[swap]) {
-        result.push(input[i])
-      }
 
-      input[i] = input[swap];
-      input[swap] = swap + 1;
+    if (i + 1 != input[i] && result.indexOf(input[i]) <= -1) {
+      if (input[i] === input[swap]) {
+        result.push(input[i]);
+        i++;
+      } else {
+        input[i] = input[swap];
+        input[swap] = swap + 1;
+      }
     } else {
       i++;
     }
